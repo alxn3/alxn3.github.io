@@ -1,18 +1,51 @@
 import Image from 'next/image';
+import { SiNextdotjs, SiReact, SiTailwindcss } from 'react-icons/si';
 
-const Footer = () => {
+const madeWith = [
+  {
+    name: 'React',
+    icon: <SiReact />,
+    url: 'https://reactjs.org/',
+  },
+  {
+    name: 'Next.js',
+    icon: <SiNextdotjs />,
+    url: 'https://nextjs.org/',
+  },
+  {
+    name: 'TailwindCSS',
+    icon: <SiTailwindcss />,
+    url: 'https://tailwindcss.com/',
+  },
+];
+
+type Props = {
+  className?: string;
+}
+
+const Footer: React.FC<Props> = ({className}) => {
   return (
-    <footer className="flex justify-center bg-white p-4">
-      <a
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+    <footer className={`flex p-4 flex-col items-center ${className || ''}`}>
+      <p className="font-regular text-md">
         Powered by
-        <span className="h-4 ml-2">
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </span>
-      </a>
+        {madeWith.map((elem, i) => (
+          <span key={elem.name}>
+            {i > 0 && ','}
+            {i == madeWith.length - 1 && ' and'}
+            <span className="inline-block ml-2">
+              <a
+                href={elem.url}
+                title={elem.name}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {elem.icon}
+              </a>
+            </span>
+          </span>
+        ))}
+        .
+      </p>
     </footer>
   );
 };
