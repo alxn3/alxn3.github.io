@@ -25,7 +25,7 @@ const Home = () => {
               />
             </div>
           </div>
-          <div className="w-1/3 md:w-1/4 mt-8 md:mt-0">
+          <div className="w-72 md:w-50 mt-8 md:mt-0">
             <Image
               src={profilePic}
               width="1"
