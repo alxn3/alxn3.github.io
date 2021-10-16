@@ -3,6 +3,7 @@ import { BsChevronDoubleDown } from 'react-icons/bs';
 import Image from 'next/image';
 import profilePic from 'public/panda.jpg';
 import Footer from 'src/components/footer';
+import ShiftingText from 'src/components/shifting-text';
 
 const Home = () => {
   return (
@@ -15,7 +16,14 @@ const Home = () => {
               <br />
               and I like to code.
             </h1>
-            <p className="text-2xl sm:text-3xl p-4 font-light">I&apos;m a...</p>
+            <div className="p-4">
+              <p className="text-2xl sm:text-3xl font-light">I&apos;m a...</p>
+              <ShiftingText
+                className="text-5xl font-black ml-8"
+                words={['Programmer', 'UX Designer', 'Engineer', 'Student']}
+                colors={['text-red-500', 'text-purple-500', 'text-yellow-500', 'text-pink-600']}
+              />
+            </div>
           </div>
           <div className="w-1/4 lg:w-1/6">
             <Image
@@ -29,8 +37,10 @@ const Home = () => {
           </div>
         </div>
         <div className="flex flex-col items-center space-y-4">
-          <p className="font-mono text-gray-500">Scroll down to learn more...</p>
-          <BsChevronDoubleDown className="animate-bounce"/>
+          <p className="font-mono text-gray-500">
+            Scroll down to learn more...
+          </p>
+          <BsChevronDoubleDown className="animate-bounce" />
         </div>
       </div>
       <Footer />
