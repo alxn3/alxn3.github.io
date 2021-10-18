@@ -1,6 +1,6 @@
 {
   "extends": "next/core-web-vitals",
   "rules": {
-    "@next/no-image-element": false
+    "@next/no-image-element": 0
   }
 }
