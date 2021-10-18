@@ -1,5 +1,12 @@
 import Image from 'next/image';
-import { SiNextdotjs, SiReact, SiTailwindcss } from 'react-icons/si';
+import {
+  SiLinkedin,
+  SiGithub,
+  SiGmail,
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+} from 'react-icons/si';
 
 const madeWith = [
   {
@@ -19,13 +26,34 @@ const madeWith = [
   },
 ];
 
+const contactClassName = 'opacity-80 hover:opacity-100 transition-opacity';
+const contact = [
+  {
+    name: 'GitHub',
+    icon: <SiGithub className={contactClassName} />,
+    url: 'https://github.com/alxn3',
+  },
+  {
+    name: 'LinkedIn',
+    icon: <SiLinkedin className={contactClassName} />,
+    url: 'https://www.linkedin.com/in/alexlin03/',
+  },
+  {
+    name: 'Mail',
+    icon: <SiGmail className={contactClassName} />,
+    url: 'mailto:contact@alexlin.me',
+  },
+];
+
 type Props = {
   className?: string;
-}
+};
 
-const Footer: React.FC<Props> = ({className}) => {
+const Footer: React.FC<Props> = ({ className }) => {
   return (
-    <footer className={`flex p-4 flex-col items-center ${className || ''}`}>
+    <footer
+      className={`flex p-4 flex-col items-center space-y-2 ${className || ''}`}
+    >
       <p className="font-regular text-md">
         Powered by
         {madeWith.map((elem, i) => (
@@ -46,6 +74,21 @@ const Footer: React.FC<Props> = ({className}) => {
         ))}
         .
       </p>
+      <div className="flex text-4xl space-x-4">
+        {contact.map((elem, i) => (
+          <span key={i} className="inline-block ml-2">
+            <a
+              href={elem.url}
+              title={elem.name}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {elem.icon}
+            </a>
+          </span>
+        ))}
+      </div>
+      <p className="text-sm">Copyright © {new Date().getFullYear()} Alex Lin. All rights reserved.</p>
     </footer>
   );
 };
