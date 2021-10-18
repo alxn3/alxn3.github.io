@@ -52,9 +52,24 @@ type Props = {
 const Footer: React.FC<Props> = ({ className }) => {
   return (
     <footer
-      className={`flex p-4 flex-col items-center space-y-2 ${className || ''}`}
+      className={`flex p-4 flex-col items-center space-y-1 ${className || ''}`}
     >
-      <p className="font-regular text-md">
+      <div className="flex text-2xl space-x-3 mb-1">
+        {contact.map((elem, i) => (
+          <span key={i} className="inline-block ml-2">
+            <a
+              href={elem.url}
+              title={elem.name}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {elem.icon}
+            </a>
+          </span>
+        ))}
+      </div>
+      <p className="text-sm">Copyright © {new Date().getFullYear()} Alex Lin. All rights reserved.</p>
+      <p className="font-regular text-sm">
         Powered by
         {madeWith.map((elem, i) => (
           <span key={elem.name}>
@@ -74,21 +89,6 @@ const Footer: React.FC<Props> = ({ className }) => {
         ))}
         .
       </p>
-      <div className="flex text-4xl space-x-4">
-        {contact.map((elem, i) => (
-          <span key={i} className="inline-block ml-2">
-            <a
-              href={elem.url}
-              title={elem.name}
-              rel="noreferrer"
-              target="_blank"
-            >
-              {elem.icon}
-            </a>
-          </span>
-        ))}
-      </div>
-      <p className="text-sm">Copyright © {new Date().getFullYear()} Alex Lin. All rights reserved.</p>
     </footer>
   );
 };
