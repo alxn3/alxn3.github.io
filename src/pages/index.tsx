@@ -1,7 +1,5 @@
 import BaseLayout from 'src/layouts/base-layout';
 import { BsChevronDoubleDown } from 'react-icons/bs';
-import Image from 'next/image';
-import profilePic from 'public/panda.jpg';
 import Footer from 'src/components/footer';
 import ShiftingText from 'src/components/shifting-text';
 
@@ -26,13 +24,10 @@ const Home = () => {
             </div>
           </div>
           <div className="w-72 md:w-50 mt-8 md:mt-0">
-            <Image
-              src={profilePic}
-              width="1"
-              height="1"
-              className="object-cover rounded-full"
+            <img
+              src="/panda.jpg"
+              className="object-cover rounded-full width-full h-auto"
               alt="me"
-              layout="responsive"
             />
           </div>
         </div>
