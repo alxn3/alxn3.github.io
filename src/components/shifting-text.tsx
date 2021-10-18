@@ -23,7 +23,6 @@ const ShiftingText: React.FC<Props> = ({
 
   const duration = 2;
   const stagger = 0.15;
-  const spacing = 0.5;
   const animation: ControlsAnimationDefinition = (i) => ({
     opacity: [0, 1],
     transition: {
@@ -33,13 +32,9 @@ const ShiftingText: React.FC<Props> = ({
       duration: duration,
     },
   });
-  const calcDelay = (len) => (duration + spacing) * 1000;
+  const callBackIndex = 0;
   useEffect(() => {
     controlOdd.start(animation);
-    setTimeout(
-      () => controlEven.start(animation),
-      calcDelay(words[oddWordIndex].length) + (duration * 1000) / 2
-    );
     return () => controlOdd.stop();
   }, []);
   return (
@@ -48,24 +43,22 @@ const ShiftingText: React.FC<Props> = ({
         word={words[oddWordIndex]}
         maxLength={MAX_LENGTH}
         animate={controlOdd}
-        onAnimationComplete={() =>
-          setTimeout(() => {
-            controlOdd.start(animation);
-            setOddWordIndex((oddWordIndex + 2) % words.length);
-          }, calcDelay(words[oddWordIndex].length))
-        }
+        callbackOnIndex={callBackIndex}
+        onAnimationComplete={() => {
+          setEvenWordIndex((evenWordIndex + 2) % words.length);
+          controlEven.start(animation);
+        }}
         className={(colors && colors[oddWordIndex]) || ''}
       />
       <MotionText
         word={words[evenWordIndex]}
         maxLength={MAX_LENGTH}
         animate={controlEven}
-        onAnimationComplete={() =>
-          setTimeout(() => {
-            controlEven.start(animation);
-            setEvenWordIndex((evenWordIndex + 2) % words.length);
-          }, calcDelay(words[evenWordIndex].length))
-        }
+        callbackOnIndex={callBackIndex}
+        onAnimationComplete={() => {
+          setOddWordIndex((oddWordIndex + 2) % words.length);
+          controlOdd.start(animation);
+        }}
         className={(colors && colors[evenWordIndex]) || ''}
       />
       {/* Don't get rid of pr-2, it breaks the code for some reason. */}

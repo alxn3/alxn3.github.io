@@ -6,6 +6,7 @@ type Props = {
   maxLength: number;
   animate: boolean | TargetAndTransition | AnimationControls | VariantLabels;
   onAnimationComplete?: (definition: AnimationDefinition) => void;
+  callbackOnIndex?: number;
   className?: string;
 };
 
@@ -14,6 +15,7 @@ const MotionText: React.FC<Props> = ({
   maxLength,
   animate,
   onAnimationComplete,
+  callbackOnIndex,
   className,
 }) => {
   return (
@@ -25,7 +27,7 @@ const MotionText: React.FC<Props> = ({
           initial={{ opacity: 0 }}
           animate={animate}
           onAnimationComplete={(def) => {
-            i == 0 && onAnimationComplete(def);
+            i == (callbackOnIndex || 0) && onAnimationComplete(def);
           }}
         >
           {word[i]}
