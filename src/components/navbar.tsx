@@ -25,7 +25,7 @@ const Navbar = () => {
       <div className="flex flex-row space-x-4 items-center text-lg">
         {NavLinks.map((links) => (
           <Link href={links.link} key={links.link}>
-            <a className="font-bold text-gray-700 hover:text-black dark:text-gray-500 dark:hover:text-white">
+            <a className="font-bold text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white">
               {links.name}
             </a>
           </Link>
