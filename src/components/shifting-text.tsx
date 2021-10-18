@@ -15,7 +15,7 @@ const ShiftingText: React.FC<Props> = ({
   colors,
 }) => {
   const [oddWordIndex, setOddWordIndex] = useState(0);
-  const [evenWordIndex, setEvenWordIndex] = useState(words.length > 1 ? 1 : 0);
+  const [evenWordIndex, setEvenWordIndex] = useState(-1);
   const LONGEST_WORD = words.reduce((a, b) => (a.length > b.length ? a : b));
   const MAX_LENGTH = LONGEST_WORD.length;
   const controlOdd = useAnimation();
@@ -51,7 +51,7 @@ const ShiftingText: React.FC<Props> = ({
         className={(colors && colors[oddWordIndex]) || ''}
       />
       <MotionText
-        word={words[evenWordIndex]}
+        word={words[evenWordIndex] || ''}
         maxLength={MAX_LENGTH}
         animate={controlEven}
         callbackOnIndex={callBackIndex}
