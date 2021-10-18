@@ -9,7 +9,7 @@ const ThemeToggle = () => {
   const toggleHover = () => setHover(!hover);
 
   return (
-    <div
+    <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
@@ -26,7 +26,7 @@ const ThemeToggle = () => {
       ) : (
         <FaSun />
       )}
-    </div>
+    </button>
   );
 };
 
