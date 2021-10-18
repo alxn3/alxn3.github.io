@@ -18,8 +18,13 @@ const Home = () => {
               <p className="text-2xl sm:text-3xl font-light">I&apos;m a...</p>
               <ShiftingText
                 className="text-5xl font-black ml-0 md:ml-8"
-                words={['Programmer', 'UX Designer', 'Engineer', 'Student']}
-                colors={['text-red-500', 'text-purple-500', 'text-yellow-500', 'text-pink-600']}
+                words={['Programmer', 'UX Designer', 'SW Engineer', 'Student']}
+                colors={[
+                  'text-red-500',
+                  'text-purple-500',
+                  'text-yellow-500',
+                  'text-pink-600',
+                ]}
               />
             </div>
           </div>
@@ -36,6 +41,14 @@ const Home = () => {
             Scroll down to learn more...
           </p>
           <BsChevronDoubleDown className="animate-bounce" />
+        </div>
+      </div>
+      <div className="flex flex-col items-center justify-center h-2/3">
+        <div>
+          <h1 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-yellow-600">
+            Under Construction...
+          </h1>
+          <p className="text-4xl font-semibold text-right opacity-80">Coming soon!</p>
         </div>
       </div>
       <Footer />
