@@ -3,9 +3,13 @@ import { ReactElement, useEffect, useState } from 'react';
 import { FaMoon, FaSun, FaRegMoon, FaRegSun } from 'react-icons/fa';
 
 const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, systemTheme } = useTheme();
   const [hover, setHover] = useState(false);
   const [icon, setIcon] = useState<ReactElement>();
+
+  useEffect(() => {
+    setTheme(systemTheme);
+  }, [systemTheme]);
 
   useEffect(() => {
     setIcon(
