@@ -6,8 +6,8 @@ import ShiftingText from 'src/components/shifting-text';
 const Home = () => {
   return (
     <BaseLayout>
-      <div className="flex items-center justify-center h-full flex-col py-10">
-        <div className="flex flex-col md:flex-row flex-1 justify-center items-center space-x-10 w-full pb-40">
+      <div className="flex items-center justify-around md:justify-center h-full flex-col md:py-10">
+        <div className="flex flex-col md:flex-row md:flex-1 justify-center items-center space-x-10 w-full md:pb-40">
           <div>
             <h1 className="text-3xl sm:text-4xl font-semibold">
               Hello! I&apos;m Alex Lin
@@ -45,10 +45,12 @@ const Home = () => {
       </div>
       <div className="flex flex-col items-center justify-center h-2/3">
         <div>
-          <h1 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-yellow-600">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-yellow-600">
             Under Construction...
           </h1>
-          <p className="text-4xl font-semibold text-right opacity-80">Coming soon!</p>
+          <p className="text-4xl font-semibold text-right opacity-80">
+            Coming soon!
+          </p>
         </div>
       </div>
       <Footer />
