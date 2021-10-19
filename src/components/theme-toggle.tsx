@@ -1,11 +1,9 @@
+import { useEffect } from 'react';
+import { FaMoon, FaSun } from 'react-icons/fa';
 import { useTheme } from 'next-themes';
-import { ReactElement, useEffect, useState } from 'react';
-import { FaMoon, FaSun, FaRegMoon, FaRegSun } from 'react-icons/fa';
 
 const ThemeToggle = () => {
   const { theme, resolvedTheme, setTheme } = useTheme();
-  const [hover, setHover] = useState(false);
-  const [icon, setIcon] = useState<ReactElement>();
 
   useEffect(() => {
     const MEDIA = '(prefers-color-scheme: dark)';
@@ -15,33 +13,21 @@ const ThemeToggle = () => {
     return () => media.removeEventListener('change', setSystem);
   }, []);
 
-  const getIsDark = () =>
-    theme === 'dark' || (theme === 'system' && resolvedTheme === 'dark');
-
-  useEffect(() => {
-    setIcon(
-      getIsDark() ? (
-        hover ? (
-          <FaRegSun />
-        ) : (
-          <FaMoon />
-        )
-      ) : hover ? (
-        <FaRegMoon />
-      ) : (
-        <FaSun />
-      )
-    );
-  }, [hover, theme]);
-
   return (
     <button
-      onClick={() => setTheme(getIsDark() ? 'light' : 'dark')}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+      onClick={() =>
+        setTheme(
+          theme === 'dark' || (theme === 'system' && resolvedTheme === 'dark')
+            ? 'light'
+            : 'dark'
+        )
+      }
       className="text-xl"
     >
-      {icon}
+      <div className="opacity-80 hover:opacity-100">
+        <FaSun className="block dark:hidden" />
+        <FaMoon className="hidden dark:block" />
+      </div>
     </button>
   );
 };
