@@ -1,5 +1,5 @@
 import { useTheme } from 'next-themes';
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement, useEffect, useRef, useState } from 'react';
 import { FaMoon, FaSun, FaRegMoon, FaRegSun } from 'react-icons/fa';
 
 const ThemeToggle = () => {
@@ -8,6 +8,15 @@ const ThemeToggle = () => {
   const [icon, setIcon] = useState<ReactElement>();
 
   useEffect(() => {
+    setTheme(theme || systemTheme)
+  }, [])
+
+  const firstUpdate = useRef(true);
+  useEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
     setTheme(systemTheme);
   }, [systemTheme]);
 
