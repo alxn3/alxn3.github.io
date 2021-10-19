@@ -1,28 +1,26 @@
 import { useTheme } from 'next-themes';
-import { ReactElement, useEffect, useRef, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { FaMoon, FaSun, FaRegMoon, FaRegSun } from 'react-icons/fa';
 
 const ThemeToggle = () => {
-  const { theme, setTheme, systemTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
   const [hover, setHover] = useState(false);
   const [icon, setIcon] = useState<ReactElement>();
 
   useEffect(() => {
-    setTheme(theme || systemTheme)
-  }, [])
+    const MEDIA = '(prefers-color-scheme: dark)';
+    const setSystem = () => setTheme('system');
+    const media = window.matchMedia(MEDIA);
+    media.addEventListener('change', setSystem);
+    return () => media.removeEventListener('change', setSystem);
+  }, []);
 
-  const firstUpdate = useRef(true);
-  useEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false;
-      return;
-    }
-    setTheme(systemTheme);
-  }, [systemTheme]);
+  const getIsDark = () =>
+    theme === 'dark' || (theme === 'system' && resolvedTheme === 'dark');
 
   useEffect(() => {
     setIcon(
-      theme === 'dark' ? (
+      getIsDark() ? (
         hover ? (
           <FaRegSun />
         ) : (
@@ -38,7 +36,7 @@ const ThemeToggle = () => {
 
   return (
     <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      onClick={() => setTheme(getIsDark() ? 'light' : 'dark')}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       className="text-xl"
