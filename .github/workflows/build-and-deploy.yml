@@ -17,16 +17,15 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
-      - name: Install and Build 🔧
+      - name: Set Up Node 📦
         uses: actions/setup-node@v2
         with:
           node-version: '16'
 
-      - run: |
+      - name: Install and Build 🔧
+        run: |
           npm ci
           npm run build
-
       - name: Add .nojekyll file
         run: touch out/.nojekyll
 
