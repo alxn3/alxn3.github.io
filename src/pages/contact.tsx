@@ -1,4 +1,3 @@
-import React from 'react';
 import Footer from 'src/components/footer';
 import BaseLayout from 'src/layouts/base-layout';
 
