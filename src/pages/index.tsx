@@ -8,8 +8,15 @@ const Home = () => {
     <BaseLayout
       headerContent={
         <div className="flex items-center justify-around md:justify-center h-full flex-col md:py-10">
-          <div className="flex flex-col md:flex-row md:flex-1 justify-center items-center md:space-x-10 md:pb-40">
-            <div>
+          <div className="flex flex-col-reverse md:flex-row-reverse md:flex-1 justify-center items-center md:space-x-10 md:pb-40">
+            <div className="w-[16rem] rounded-[min(20rem,50%)] md:w-[min(30%,16rem)] mt-8 md:mt-0 hover:rounded-[2rem] hover:scale-105 md:hover:scale-110 md:hover:rotate-3 transition-all duration-1000 overflow-hidden peer">
+              <img
+                src="/panda.jpg"
+                className="object-cover width-full h-auto"
+                alt="me"
+              />
+            </div>
+            <div className="peer-hover:scale-[1.03] md:peer-hover:scale-105 md:peer-hover:-translate-x-10 transition-transform duration-1000">
               <h1 className="text-3xl sm:text-4xl font-semibold">
                 Hello! I&apos;m Alex Lin
                 <br />
@@ -33,13 +40,6 @@ const Home = () => {
                   ]}
                 />
               </div>
-            </div>
-            <div className="w-48 sm:w-60 md:w-56 mt-8 md:mt-0">
-              <img
-                src="/panda.jpg"
-                className="object-cover rounded-full width-full h-auto"
-                alt="me"
-              />
             </div>
           </div>
           <div className="flex flex-col items-center space-y-4">

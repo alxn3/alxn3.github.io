@@ -11,3 +11,7 @@ body,
 html.dark {
   color-scheme: dark;
 }
+
+body {
+  @apply transition-colors bg-white dark:bg-gray-900
+}
