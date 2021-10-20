@@ -16,6 +16,7 @@ const ShiftingText: React.FC<Props> = ({
 }) => {
   const [oddWordIndex, setOddWordIndex] = useState(0);
   const [evenWordIndex, setEvenWordIndex] = useState(-1);
+  const [currentColor, setCurrentColor] = useState(0);
   const LONGEST_WORD = words.reduce((a, b) => (a.length > b.length ? a : b));
   const MAX_LENGTH = LONGEST_WORD.length;
   const controlOdd = useAnimation();
@@ -47,8 +48,9 @@ const ShiftingText: React.FC<Props> = ({
         onAnimationComplete={() => {
           setEvenWordIndex((evenWordIndex + 2) % words.length);
           controlEven.start(animation);
+          setCurrentColor((currentColor + 1) % colors.length)
         }}
-        className={(colors && colors[oddWordIndex]) || ''}
+        className={(colors && `${colors[currentColor]}  transition-colors duration-[2500ms]`) || ''}
       />
       <MotionText
         word={words[evenWordIndex] || ''}
@@ -58,8 +60,9 @@ const ShiftingText: React.FC<Props> = ({
         onAnimationComplete={() => {
           setOddWordIndex((oddWordIndex + 2) % words.length);
           controlOdd.start(animation);
+          setCurrentColor((currentColor + 1) % colors.length)
         }}
-        className={(colors && colors[evenWordIndex]) || ''}
+        className={(colors && `${colors[currentColor]}  transition-colors duration-[2500ms]`) || ''}
       />
       {/* Don't get rid of pr-2, it breaks the code for some reason. */}
       <span className="pr-2 opacity-0 select-none">{LONGEST_WORD}</span>
