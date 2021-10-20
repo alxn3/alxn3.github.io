@@ -21,8 +21,8 @@ const ShiftingText: React.FC<Props> = ({
   const controlOdd = useAnimation();
   const controlEven = useAnimation();
 
-  const duration = 2;
-  const stagger = 0.15;
+  const duration = 2.5;
+  const stagger = 0.125;
   const animation: ControlsAnimationDefinition = (i) => ({
     opacity: [0, 1],
     transition: {

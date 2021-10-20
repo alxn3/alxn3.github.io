@@ -16,14 +16,14 @@ const Home = () => {
                 alt="me"
               />
             </div>
-            <div className="peer-hover:scale-[1.03] md:peer-hover:scale-105 md:peer-hover:-translate-x-10 transition-transform duration-1000">
-              <h1 className="text-3xl font-semibold sm:text-4xl">
+            <div className="text-3xl sm:text-4xl peer-hover:scale-[1.03] md:peer-hover:scale-105 md:peer-hover:-translate-x-10 transition-transform duration-1000">
+              <h1 className="font-semibold ">
                 Hello! I&apos;m Alex Lin
                 <br />
                 and I like to code.
               </h1>
-              <div className="sm:p-4">
-                <p className="text-2xl font-light sm:text-3xl">I&apos;m a...</p>
+              <div className="sm:px-4 sm:py-6">
+                <p className="font-light">I&apos;m a...</p>
                 <ShiftingText
                   className="ml-0 text-5xl font-black md:ml-8"
                   words={[
