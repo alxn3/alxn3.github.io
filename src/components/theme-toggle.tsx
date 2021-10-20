@@ -24,7 +24,7 @@ const ThemeToggle = () => {
       }
       className="text-xl"
     >
-      <div className="opacity-80 hover:opacity-100">
+      <div className="text-black transition-colors dark:text-white hover:text-primary-500 dark:hover:text-primary-500">
         <FaSun className="block dark:hidden" />
         <FaMoon className="hidden dark:block" />
       </div>

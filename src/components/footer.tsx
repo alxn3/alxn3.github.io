@@ -25,7 +25,7 @@ const madeWith = [
   },
 ];
 
-const contactClassName = 'opacity-80 hover:opacity-100 transition-opacity';
+const contactClassName = 'text-black dark:text-white hover:text-primary-500 dark:hover:text-primary-500 transition-colors';
 const contact = [
   {
     name: 'GitHub',

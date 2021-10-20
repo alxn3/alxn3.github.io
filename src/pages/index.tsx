@@ -33,10 +33,9 @@ const Home = () => {
                     'Student',
                   ]}
                   colors={[
-                    'text-red-500',
-                    'text-purple-500',
-                    'text-yellow-500',
-                    'text-pink-600',
+                    'text-primary-500',
+                    'text-secondary-500',
+                    'text-accent-500',
                   ]}
                 />
               </div>
@@ -53,7 +52,7 @@ const Home = () => {
     >
       <div className="flex flex-col items-center justify-center h-2/3">
         <div>
-          <h1 className="text-4xl font-black text-transparent sm:text-5xl md:text-6xl bg-clip-text bg-gradient-to-r from-red-400 to-yellow-600">
+          <h1 className="text-4xl font-black text-transparent sm:text-5xl md:text-6xl bg-clip-text bg-gradient-to-l from-primary-400 to-accent-600">
             Under Construction...
           </h1>
           <p className="text-4xl font-semibold text-right opacity-80">
