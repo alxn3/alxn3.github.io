@@ -22,7 +22,7 @@ const Home = () => {
                 <br />
                 and I like to code.
               </h1>
-              <div className="sm:px-4 sm:py-6">
+              <div className="sm:p-6">
                 <p className="font-light">I&apos;m a...</p>
                 <ShiftingText
                   className="ml-0 text-5xl font-black md:ml-8"
