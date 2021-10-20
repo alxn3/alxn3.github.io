@@ -17,7 +17,7 @@ const BaseLayout: React.FC<Props> = ({ headerContent, children }) => {
       </Head>
       <main className="h-full w-[min(90%,78rem)] mx-auto">
         {headerContent ? (
-          <div className="h-full flex flex-col">
+          <div className="flex flex-col h-full">
             <Navbar />
             <div className="flex-1">{headerContent}</div>
           </div>

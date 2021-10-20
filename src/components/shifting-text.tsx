@@ -62,7 +62,7 @@ const ShiftingText: React.FC<Props> = ({
         className={(colors && colors[evenWordIndex]) || ''}
       />
       {/* Don't get rid of pr-2, it breaks the code for some reason. */}
-      <span className="opacity-0 pr-2 select-none">{LONGEST_WORD}</span>
+      <span className="pr-2 opacity-0 select-none">{LONGEST_WORD}</span>
     </span>
   );
 };

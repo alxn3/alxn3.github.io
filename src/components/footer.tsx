@@ -53,7 +53,7 @@ const Footer: React.FC<Props> = ({ className }) => {
     <footer
       className={`flex p-4 flex-col items-center space-y-1 ${className || ''}`}
     >
-      <div className="flex text-2xl space-x-3 mb-1">
+      <div className="flex mb-1 space-x-3 text-2xl">
         {contact.map((elem, i) => (
           <span key={i} className="inline-block ml-2">
             <a
@@ -68,7 +68,7 @@ const Footer: React.FC<Props> = ({ className }) => {
         ))}
       </div>
       <p className="text-sm">Copyright © {new Date().getFullYear()} Alex Lin. All rights reserved.</p>
-      <p className="font-regular text-sm">
+      <p className="text-sm font-regular">
         Powered by
         {madeWith.map((elem, i) => (
           <span key={elem.name}>
