@@ -1,7 +1,11 @@
 import BaseLayout from 'src/layouts/base-layout';
-import { BsChevronDoubleDown } from 'react-icons/bs';
+import { BsChevronDoubleDown, BsLightningFill } from 'react-icons/bs';
+import { GiOpenBook } from 'react-icons/gi';
+import { FaBug, FaRecycle } from 'react-icons/fa';
 import Footer from 'src/components/footer';
 import ShiftingText from 'src/components/shifting-text';
+import Section from 'src/components/section';
+import Card from 'src/components/card';
 
 const Home = () => {
   return (
@@ -50,13 +54,56 @@ const Home = () => {
         </div>
       }
     >
+      <div className="flex flex-col items-center justify-center h-full">
+        <Section
+          title="A little about me"
+          description="I write..."
+          containerClassName="min-w-[80%]"
+        >
+          <div className="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-2">
+            <Card
+              title="Blazing fast code"
+              description={
+                <>
+                  Check out my{' '}
+                  <a
+                    href="https://leetcode.com/alxn3/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-primary-500 hover:underline"
+                  >
+                    LeetCode profile
+                  </a>
+                  .
+                </>
+              }
+              icon={<BsLightningFill />}
+            />
+            <Card
+              title="Reusable and robust code"
+              description="Why do things twice when you can do it once?"
+              icon={<FaRecycle />}
+            />
+            <Card
+              title="Bug-free code"
+              description="Well most of the time... Everyone makes mistakes."
+              icon={<FaBug />}
+            />
+            <Card
+              title="Extremely readable code"
+              description="You can read it like an open book."
+              icon={<GiOpenBook />}
+            />
+          </div>
+        </Section>
+      </div>
       <div className="flex flex-col items-center justify-center h-2/3">
         <div>
           <h1 className="text-4xl font-black text-transparent sm:text-5xl md:text-6xl bg-clip-text bg-gradient-to-l from-primary-400 to-accent-600">
             Under Construction...
           </h1>
           <p className="text-4xl font-semibold text-right opacity-80">
-            Coming soon!
+            More coming soon!
           </p>
         </div>
       </div>
