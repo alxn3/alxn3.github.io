@@ -58,7 +58,7 @@ const Home = () => {
         <Section
           title="A little about me"
           description="I write..."
-          containerClassName="min-w-[80%]"
+          containerClassName="w-[min(100%,68rem)]"
         >
           <div className="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-2">
             <Card
@@ -81,12 +81,18 @@ const Home = () => {
             />
             <Card
               title="Reusable and robust code"
-              description="Why do things twice when you can do it once?"
+              description={
+                <>
+                  Why do things twice when you can do it once?
+                  <br />
+                  AA
+                </>
+              }
               icon={<FaRecycle />}
             />
             <Card
               title="Bug-free code"
-              description="Well most of the time... Everyone makes mistakes."
+              description="Well most of the time... Everyone makes mistakes. The debugger is my best friend and I test my code heavily."
               icon={<FaBug />}
             />
             <Card

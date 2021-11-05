@@ -25,7 +25,7 @@ const Section: React.FC<Props> = ({
         {title}
       </h1>
       <p
-        className={`text-3xl md:text-4xl font-light mt-2 ${
+        className={`text-3xl md:text-4xl font-semibold mt-2 ${
           descriptionClassName || ''
         }`}
       >
