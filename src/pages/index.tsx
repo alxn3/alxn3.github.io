@@ -1,13 +1,16 @@
+import { useState } from 'react';
+import { BsChevronDoubleDown } from 'react-icons/bs';
+import { FaArrowLeft } from 'react-icons/fa';
 import BaseLayout from 'src/layouts/base-layout';
-import { BsChevronDoubleDown, BsLightningFill } from 'react-icons/bs';
-import { GiOpenBook } from 'react-icons/gi';
-import { FaBug, FaRecycle } from 'react-icons/fa';
 import Footer from 'src/components/footer';
 import ShiftingText from 'src/components/shifting-text';
 import Section from 'src/components/section';
 import Card from 'src/components/card';
+import AboutCode from 'src/data/about-code';
+import CircleIcon from 'src/components/circle-icon';
 
 const Home = () => {
+  const [aboutCodeIndex, setAboutCodeIndex] = useState(-1);
   return (
     <BaseLayout
       headerContent={
@@ -60,46 +63,59 @@ const Home = () => {
           description="I write..."
           containerClassName="w-[min(100%,68rem)]"
         >
-          <div className="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-2">
-            <Card
-              title="Blazing fast code"
-              description={
-                <>
-                  Check out my{' '}
-                  <a
-                    href="https://leetcode.com/alxn3/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-primary-500 hover:underline"
-                  >
-                    LeetCode profile
-                  </a>
-                  .
-                </>
+          <div className="relative mt-4">
+            <div
+              className={
+                aboutCodeIndex == -1
+                  ? 'hidden'
+                  : 'absolute space-y-4 w-full h-full z-10 p-7 transition-colors duration-300 bg-gray-50 border-2 border-gray-50 rounded-lg dark:border-gray-900 hover:border-primary-500 dark:bg-gray-900 dark:hover:border-primary-500'
               }
-              icon={<BsLightningFill />}
-            />
-            <Card
-              title="Reusable and robust code"
-              description={
+            >
+              {AboutCode[aboutCodeIndex] !== undefined ? (
                 <>
-                  Why do things twice when you can do it once?
-                  <br />
-                  AA
+                  <div className="flex justify-between">
+                    <h1 className="text-5xl font-bold">
+                      {AboutCode[aboutCodeIndex].title}
+                    </h1>
+                    <CircleIcon
+                      icon={
+                        <span className="flex gap-2 items-center">
+                          <FaArrowLeft />
+                          <span className="text-2xl">
+                          {AboutCode[aboutCodeIndex].icon}
+                          </span>
+                        </span>
+                      }
+                      fontSize="text-xl"
+                      padding="p-3"
+                      backgroundColor="bg-gray-200 dark:bg-gray-700"
+                      hoverBackgroundColor="bg-gradient-to-r from-primary-500 to-secondary-500"
+                      onClick={() => setAboutCodeIndex(-1)}
+                    />
+                  </div>
+                  <p className="text-lg font-medium lg:text-xl">
+                    {AboutCode[aboutCodeIndex].description}
+                  </p>
                 </>
-              }
-              icon={<FaRecycle />}
-            />
-            <Card
-              title="Bug-free code"
-              description="Well most of the time... Everyone makes mistakes. The debugger is my best friend and I test my code heavily."
-              icon={<FaBug />}
-            />
-            <Card
-              title="Extremely readable code"
-              description="You can read it like an open book."
-              icon={<GiOpenBook />}
-            />
+              ) : (
+                ''
+              )}
+            </div>
+            <div
+              className={`relative grid grid-cols-1 gap-4 lg:grid-cols-2 ${
+                aboutCodeIndex == -1 ? '' : 'opacity-0'
+              }`}
+            >
+              {AboutCode.map((item, i) => (
+                <Card
+                  key={i}
+                  title={item.title}
+                  description={item.description}
+                  icon={item.icon}
+                  onClick={() => setAboutCodeIndex(i)}
+                />
+              ))}
+            </div>
           </div>
         </Section>
       </div>
