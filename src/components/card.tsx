@@ -5,15 +5,22 @@ type Props = {
   title: string | ReactElement;
   description: string | ReactElement;
   icon?: string | ReactElement;
+  className?: string;
   onClick?: MouseEventHandler<HTMLDivElement>;
 };
 
-const Card: React.FC<Props> = ({ title, description, icon, onClick }) => {
+const Card: React.FC<Props> = ({
+  title,
+  description,
+  icon,
+  className,
+  onClick,
+}) => {
   return (
     <div
-      className={`group grid grid-cols-[auto,1fr] p-4 lg:p-6 space-x-4 transition-colors duration-300 bg-gray-100 border-2 border-gray-100 rounded-lg dark:border-gray-900 hover:bg-gray-50 hover:border-primary-500 dark:bg-gray-900 dark:hover:bg-gray-800 dark:hover:border-primary-500 ${
+      className={`group grid grid-cols-[auto,1fr] p-4 lg:p-6 space-x-4 transition-colors duration-300 bg-gray-100 border-2 border-gray-200 rounded-lg dark:border-gray-800 hover:bg-gray-50 hover:border-primary-500 dark:bg-gray-900 dark:hover:bg-gray-800 dark:hover:border-primary-500 ${
         onClick ? 'cursor-pointer' : ''
-      }`}
+      } ${className || ''}`}
       onClick={onClick}
     >
       {icon && <CircleIcon icon={icon} />}

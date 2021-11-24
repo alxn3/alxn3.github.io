@@ -8,6 +8,7 @@ type Props = {
   hoverIconColor?: string;
   padding?: string;
   fontSize?: string;
+  className?: string;
   onClick?: MouseEventHandler<HTMLDivElement>;
 };
 
@@ -19,6 +20,7 @@ const CircleIcon: React.FC<Props> = ({
   hoverIconColor = 'group-hover:text-white dark:group-hover:text-black',
   padding = 'p-4',
   fontSize = 'text-3xl',
+  className,
   onClick,
 }) => {
   return (
@@ -26,7 +28,7 @@ const CircleIcon: React.FC<Props> = ({
       <div
         className={`group relative overflow-hidden rounded-full ${backgroundColor} ${padding} ${fontSize} ${
           onClick ? 'cursor-pointer' : ''
-        }`}
+        } ${className}`}
         onClick={onClick}
       >
         <div
