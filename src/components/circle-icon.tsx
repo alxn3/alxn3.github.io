@@ -28,7 +28,7 @@ const CircleIcon: React.FC<Props> = ({
       <div
         className={`group relative overflow-hidden rounded-full ${backgroundColor} ${padding} ${fontSize} ${
           onClick ? 'cursor-pointer' : ''
-        } ${className}`}
+        } ${className || ''}`}
         onClick={onClick}
       >
         <div
